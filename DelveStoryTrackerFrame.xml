@@ -18,7 +18,7 @@
         <Layers>
             <Layer level="ARTWORK">
                 <!-- Main Title -->
-                <FontString name="DelveTrackerFrameTitle" inherits="GameFontNormalLarge" text="Delve Tracker v1.0">
+                <FontString name="DelveTrackerFrameTitle" inherits="GameFontNormalLarge" text="Delve Story Tracker v1.0">
                     <Anchors>
                         <Anchor point="TOP" x="0" y="15"/>
                     </Anchors>
