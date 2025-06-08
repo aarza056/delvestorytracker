@@ -1,0 +1,86 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <Frame name="DelveTrackerFrame"
+           parent="UIParent"
+           inherits="BackdropTemplate"
+           hidden="true"
+           movable="true"
+           enableMouse="true"
+           toplevel="true"
+           frameStrata="DIALOG">
+
+        <Size x="300" y="200"/>
+        <Anchors>
+            <Anchor point="CENTER"/>
+        </Anchors>
+
+        <Layers>
+            <Layer level="ARTWORK">
+                <!-- Main Title -->
+                <FontString name="DelveTrackerFrameTitle" inherits="GameFontNormalLarge" text="Delve Tracker v1.0">
+                    <Anchors>
+                        <Anchor point="TOP" x="0" y="15"/>
+                    </Anchors>
+                </FontString>
+
+                <!-- Zone Subtitle -->
+                <FontString name="DelveTrackerFrameZoneTitle" inherits="GameFontNormal" text="Zone Name">
+                    <Anchors>
+                        <Anchor point="CENTER" x="0" y="65"/>
+                    </Anchors>
+                </FontString>
+
+                <!-- Delve list -->
+                <FontString name="DelveTrackerFrameText" inherits="GameFontHighlightSmall">
+                    <Size x="270" y="120"/>
+                    <Anchors>
+                        <Anchor point="TOPLEFT" x="15" y="0"/>
+                    </Anchors>
+                </FontString>
+            </Layer>
+        </Layers>
+
+        <Frames>
+            <!-- Close Button -->
+            <Button name="DelveTrackerCloseButton" inherits="UIPanelCloseButton">
+                <Anchors>
+                    <Anchor point="TOPRIGHT" x="-5" y="-5"/>
+                </Anchors>
+                <Scripts>
+                    <OnClick>
+                        self:GetParent():Hide()
+                    </OnClick>
+                </Scripts>
+            </Button>
+
+            <!-- Zone Dropdown -->
+            <Frame name="DelveTrackerZoneDropdown" inherits="UIDropDownMenuTemplate">
+    <Anchors>
+        <Anchor point="BOTTOMLEFT" relativePoint="BOTTOMLEFT" x="-5" y="5"/>
+    </Anchors>
+    <Scripts>
+        <OnLoad function="DelveTracker_ZoneDropdown_OnLoad"/>
+    </Scripts>
+</Frame>
+        </Frames>
+
+        <Scripts>
+            <OnLoad>
+                self:SetBackdrop({
+                    bgFile = "Interface\\DialogFrame\\UI-DialogBox-Background",
+                    edgeFile = "Interface\\DialogFrame\\UI-DialogBox-Border",
+                    tile = true, tileSize = 32, edgeSize = 32,
+                    insets = { left = 11, right = 12, top = 12, bottom = 11 }
+                })
+                self:RegisterForDrag("LeftButton")
+            </OnLoad>
+            <OnDragStart>
+                self:StartMoving()
+            </OnDragStart>
+            <OnDragStop>
+                self:StopMovingOrSizing()
+            </OnDragStop>
+        </Scripts>
+    </Frame>
+</Ui>

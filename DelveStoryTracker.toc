@@ -1,0 +1,8 @@
+## Interface: 100207
+## Title: Delve Story Tracker
+## Notes: Shows current Delve story dynamically.
+## Author: BethrayerProjects
+## Version: 1.0
+## IconTexture: Interface\AddOns\DelveStoryTracker\Textures\dt_logo.png
+DelveStoryTracker.lua
+DelveStoryTrackerFrame.xml
